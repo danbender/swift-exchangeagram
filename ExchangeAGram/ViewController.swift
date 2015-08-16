@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  ExchangeAGram
-//
-//  Created by Dan Bender on 16/08/15.
-//  Copyright (c) 2015 Dan Bender. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
