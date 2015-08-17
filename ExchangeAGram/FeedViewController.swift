@@ -1,6 +1,7 @@
 import UIKit
+import MobileCoreServices
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -26,9 +27,34 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     */
     
+    
+    @IBAction func snapBarButtonItemTapped(sender: UIBarButtonItem) {
+
+        //        check if camera is available (it's not in simulator)
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            
+//          Set up image controller: 
+//          UIImagePickerController: special type of ui navigation controller that gives access to photos, videos, their libs
+            
+            var cameraController = UIImagePickerController()
+            cameraController.delegate = self
+            
+//            which source type and media format
+            cameraController.sourceType = UIImagePickerControllerSourceType.Camera
+            let mediaTypes:[AnyObject] = [kUTTypeImage]
+            cameraController.mediaTypes = mediaTypes
+//            here, disallow editing of photos
+            cameraController.allowsEditing = false
+            
+//            present on screen
+            self.presentViewController(cameraController, animated: true, completion: nil)
+        }
+    }
+    
+    
 //    UICollectionViewDataSource
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView:UICollectionView) -> Int {
         return 1
     }
     
