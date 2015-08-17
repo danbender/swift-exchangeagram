@@ -74,6 +74,18 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     
+//    UIImagePickerControllerDelegate
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+
+//    Since this is a dict we don't know which type we're getting back; specfifying with as!: want the original image UIImagePickerControllerOriginalImage back; no cropping, editing or so
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        println(image)
+        
+//     Dismiss ViewController after we pick an image
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
 //    UICollectionViewDataSource
     
