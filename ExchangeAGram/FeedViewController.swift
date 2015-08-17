@@ -51,7 +51,6 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
             
 //            use photo lib if no cam is available (e.g. in simulator)
-
         else if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
                 
                 var photoLibraryController = UIImagePickerController()
@@ -64,17 +63,16 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
                 
                 self.presentViewController(photoLibraryController, animated: true, completion: nil)
                 
-            }
-            else {
+        }
+            
+        else {
                 var alertController = UIAlertController(title: "Alert", message: "Your device does not support the camera or photo library", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 
                 self.presentViewController(alertController, animated: true, completion: nil)
-            }
         }
-        
-        
     }
+    
     
     
 //    UICollectionViewDataSource
