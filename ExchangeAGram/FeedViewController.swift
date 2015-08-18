@@ -1,5 +1,6 @@
 import UIKit
 import MobileCoreServices
+import CoreData
 
 class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -81,6 +82,21 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
 //    Since this is a dict we don't know which type we're getting back; specfifying with as!: want the original image UIImagePickerControllerOriginalImage back; no cropping, editing or so
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         println(image)
+        
+//        convert img in data representation of this img
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
+        
+//        create feed item
+        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let entityDescription = NSEntityDescription.entityForName("Feed Item", inManagedObjectContext: managedObjectContext!)
+        let feedItem = FeedItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
+        
+//        set up actual feed item and save it
+        feedItem.image = imageData
+        feedItem.caption = "text caption"
+        
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+        
         
 //     Dismiss ViewController after we pick an image
         self.dismissViewControllerAnimated(true, completion: nil)
