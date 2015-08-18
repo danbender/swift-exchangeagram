@@ -6,10 +6,21 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+//    use this feedArray to grab an array of feed items when i make the fetch request manually
+    var feedArray:[AnyObject] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//         make request
+        let request = NSFetchRequest(entityName: "FeedItem")
+//        access to AppDelegate instance
+        let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+//        with that access to NSManagedOjectContext
+        let context:NSManagedObjectContext = appDelegate.managedObjectContext!
+//        actually make the request
+        feedArray = context.executeFetchRequest(request, error: nil)!
     }
 
     override func didReceiveMemoryWarning() {
