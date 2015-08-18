@@ -99,7 +99,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
 //        create feed item
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let entityDescription = NSEntityDescription.entityForName("Feed Item", inManagedObjectContext: managedObjectContext!)
+        let entityDescription = NSEntityDescription.entityForName("FeedItem", inManagedObjectContext: managedObjectContext!)
         let feedItem = FeedItem(entity: entityDescription!, insertIntoManagedObjectContext: managedObjectContext!)
         
 //        set up actual feed item and save it
