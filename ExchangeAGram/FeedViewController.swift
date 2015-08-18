@@ -108,9 +108,15 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
+//        save directly
+        feedArray.append(feedItem)
         
 //     Dismiss ViewController after we pick an image
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+//        tell collection to reload itself directly
+        self.collectionView.reloadData()
+        
     }
     
     
@@ -121,11 +127,21 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return feedArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        
+//        set up cell
+        var cell:FeedCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! FeedCell
+        
+        let thisItem = feedArray[indexPath.row] as! FeedItem
+        
+//        update cell to display image and caption.
+        cell.imageView.image = UIImage(data: thisItem.image)
+        cell.captionLabel.text = thisItem.caption
+        
+        return cell
     }
 
 }
