@@ -143,5 +143,13 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         return cell
     }
+    
+    
+//    UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+//        get the item that was tapped
+        let thisItem = feedArray[indexPath.row] as! FeedItem
+    }
 
 }
