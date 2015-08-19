@@ -150,6 +150,23 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 //        get the item that was tapped
         let thisItem = feedArray[indexPath.row] as! FeedItem
+        
+        var filterVC = FilterViewController()
+        filterVC.thisFeedItem = thisItem
+        
+//        push to filterVC
+        self.navigationController?.pushViewController(filterVC, animated: false)
+        
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
