@@ -17,6 +17,7 @@
 		3717C49F1B8122030080DD43 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3717C49E1B8122030080DD43 /* FeedCell.swift */; };
 		3717C4A11B81A76D0080DD43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */; };
 		375859411B81C52B004888F0 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375859401B81C52B004888F0 /* FeedItem.swift */; };
+		37E3DD841B843ABB0014A342 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3DD831B843ABB0014A342 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		3717C49E1B8122030080DD43 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		375859401B81C52B004888F0 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
+		37E3DD831B843ABB0014A342 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			children = (
 				3717C4791B8112640080DD43 /* AppDelegate.swift */,
 				3717C49C1B81161D0080DD43 /* FeedViewController.swift */,
+				37E3DD831B843ABB0014A342 /* FilterViewController.swift */,
 				3717C49E1B8122030080DD43 /* FeedCell.swift */,
 				3717C4801B8112640080DD43 /* Main.storyboard */,
 				3717C4831B8112640080DD43 /* Images.xcassets */,
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37E3DD841B843ABB0014A342 /* FilterViewController.swift in Sources */,
 				3717C47A1B8112640080DD43 /* AppDelegate.swift in Sources */,
 				3717C49F1B8122030080DD43 /* FeedCell.swift in Sources */,
 				3717C49D1B81161D0080DD43 /* FeedViewController.swift in Sources */,
