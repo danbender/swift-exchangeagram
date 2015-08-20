@@ -5,7 +5,7 @@ class FilterCell: UICollectionViewCell {
     
     var imageView: UIImageView!
     
-//
+// frame inherits (since it's a subclass of UICollectionViewCell)
     override init(frame: CGRect) {
         super.init(frame: frame)
         
