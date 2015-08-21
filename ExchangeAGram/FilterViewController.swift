@@ -25,6 +25,10 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
 
 //        add to view; basic styling to make it visible
         collectionView.backgroundColor = UIColor.whiteColor()
+        
+//        in viewDidLoad register filterCell class with the collectionView
+        collectionView.registerClass(FilterCell.self, forCellWithReuseIdentifier: "MyCell")
+        
         self.view.addSubview(collectionView)
         
     }
@@ -35,10 +39,15 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 2
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        let cell:FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("MyCell", forIndexPath: indexPath) as! FilterCell
+        
+//        set up default
+        cell.imageView.image = UIImage(named: "Placeholder")
+        
+        return cell
     }
 }
