@@ -107,7 +107,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     func filteredImageFromImage (imageData: NSData, filter: CIFilter) -> UIImage {
         
         let unfilteredImage = CIImage(data: imageData)
-        unfilteredImage.setValue(unfilteredImage, forKey: kCIInputImageKey)
+        filter.setValue(unfilteredImage, forKey: kCIInputImageKey)
         
 //        apply filter's properties to unfiltered image
         let filteredImage:CIImage = filter.outputImage
