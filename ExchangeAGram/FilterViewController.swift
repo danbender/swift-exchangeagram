@@ -60,9 +60,22 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell:FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("MyCell", forIndexPath: indexPath) as! FilterCell
         
 //        set up default
-//        cell.imageView.image = UIImage(named: "Placeholder")
+        cell.imageView.image = UIImage(named: "Placeholder")
         
-        cell.imageView.image = filteredImageFromImage(thisFeedItem.image, filter: filters[indexPath.row])
+        
+//        Create queue to fix single-thread perfomance crash;
+//        UI-related stuff ALWAYS ON THE MAIN THREAD!!
+        let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
+        
+        dispatch_async(filterQueue, { () -> Void in
+            let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+            
+//            once get back the filtered image, want to use that image to update our cells' imageView's image property
+//            update on main thread!
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                cell.imageView.image = filterImage
+            })
+        })
         
         return cell
     }
