@@ -96,6 +96,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
 //        convert img in data representation of this img
         let imageData = UIImageJPEGRepresentation(image, 1.0)
+        let thumbNailData = UIImageJPEGRepresentation(image, 0.1)
         
 //        create feed item
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -105,6 +106,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        set up actual feed item and save it
         feedItem.image = imageData
         feedItem.caption = "text caption"
+        feedItem.thumbNail = thumbNailData
         
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
