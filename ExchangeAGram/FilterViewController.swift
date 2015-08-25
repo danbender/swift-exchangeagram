@@ -68,7 +68,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
         
         dispatch_async(filterQueue, { () -> Void in
-            let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+            let filterImage = self.filteredImageFromImage(self.thisFeedItem.thumbNail, filter: self.filters[indexPath.row])
             
 //            once get back the filtered image, want to use that image to update our cells' imageView's image property
 //            update on main thread!
