@@ -3,18 +3,12 @@ import UIKit
 class FilterViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var thisFeedItem: FeedItem!
-    
 //    write collectionView in code, not drag'n drop it in storyboard
     var collectionView: UICollectionView!
-    
     let kIntensity = 0.7
-    
     var context:CIContext = CIContext(options: nil)
-    
     var filters:[CIFilter] = []
-    
     let placeHolderImage = UIImage(named: "Placeholder")
-    
     
     
     override func viewDidLoad() {
