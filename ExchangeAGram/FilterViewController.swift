@@ -54,30 +54,25 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("MyCell", forIndexPath: indexPath) as! FilterCell
-        
-//        if cell's image view has no image, create placeholer
-        if cell.imageView.image == nil {
            
-            //        set up default
-            cell.imageView.image = placeHolderImage
+        //        set up default
+        cell.imageView.image = placeHolderImage
             
             
-            //        Create queue to fix single-thread perfomance crash;
-            //        UI-related stuff ALWAYS ON THE MAIN THREAD!!
-            let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
+        //        Create queue to fix single-thread perfomance crash;
+        //        UI-related stuff ALWAYS ON THE MAIN THREAD!!
+        let filterQueue:dispatch_queue_t = dispatch_queue_create("filter queue", nil)
             
-            dispatch_async(filterQueue, { () -> Void in
-                let filterImage = self.filteredImageFromImage(self.thisFeedItem.thumbNail, filter: self.filters[indexPath.row])
+        dispatch_async(filterQueue, { () -> Void in
+            let filterImage = self.getCachedImage(indexPath.row)
                 
-                //            once get back the filtered image, want to use that image to update our cells' imageView's image property
-                //            update on main thread!
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+            //            once get back the filtered image, want to use that image to update our cells' imageView's image property
+            //            update on main thread!
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     cell.imageView.image = filterImage
-                })
             })
-    
-        }
-        
+        })        
         
         return cell
     }
