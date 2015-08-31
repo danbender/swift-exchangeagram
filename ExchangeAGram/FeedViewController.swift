@@ -12,33 +12,27 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//         make request
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //         make request
         let request = NSFetchRequest(entityName: "FeedItem")
-//        access to AppDelegate instance
+        //        access to AppDelegate instance
         let appDelegate:AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-//        with that access to NSManagedOjectContext
+        //        with that access to NSManagedOjectContext
         let context:NSManagedObjectContext = appDelegate.managedObjectContext!
-//        actually make the request
+        //        actually make the request
         feedArray = context.executeFetchRequest(request, error: nil)!
+        
+//        refresh collectionView
+        collectionView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func snapBarButtonItemTapped(sender: UIBarButtonItem) {
 

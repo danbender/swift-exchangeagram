@@ -72,11 +72,31 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     cell.imageView.image = filterImage
             })
-        })        
+        })
         
         return cell
     }
     
+//    Save filter choice to image
+//    UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+    
+//        update image with filter
+        let imageData = UIImageJPEGRepresentation(filterImage, 1.0)
+        self.thisFeedItem.image = imageData
+        
+//        update thumbnail with filter
+        let thumbNailData = UIImageJPEGRepresentation(filterImage, 0.1)
+        self.thisFeedItem.thumbNail = thumbNailData
+        
+//        update CoreData
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    
+    }
     
 //    Helper function
     
