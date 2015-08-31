@@ -18,6 +18,7 @@
 		3717C4A11B81A76D0080DD43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */; };
 		372BF52E1B8C2B0D0059D03B /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372BF52D1B8C2B0D0059D03B /* FeedItem.swift */; };
 		37C2EBAA1B85A05D00AC680C /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C2EBA91B85A05D00AC680C /* FilterCell.swift */; };
+		37D33A0C1B94F3DA0026DDC2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D33A0B1B94F3DA0026DDC2 /* ProfileViewController.swift */; };
 		37E3DD841B843ABB0014A342 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3DD831B843ABB0014A342 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		372BF52D1B8C2B0D0059D03B /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
 		37C2EBA91B85A05D00AC680C /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		37D33A0B1B94F3DA0026DDC2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		37E3DD831B843ABB0014A342 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 				37E3DD831B843ABB0014A342 /* FilterViewController.swift */,
 				3717C49E1B8122030080DD43 /* FeedCell.swift */,
 				37C2EBA91B85A05D00AC680C /* FilterCell.swift */,
+				37D33A0B1B94F3DA0026DDC2 /* ProfileViewController.swift */,
 				3717C4801B8112640080DD43 /* Main.storyboard */,
 				3717C4831B8112640080DD43 /* Images.xcassets */,
 				3717C4851B8112640080DD43 /* LaunchScreen.xib */,
@@ -245,6 +248,7 @@
 				3717C49F1B8122030080DD43 /* FeedCell.swift in Sources */,
 				3717C49D1B81161D0080DD43 /* FeedViewController.swift in Sources */,
 				372BF52E1B8C2B0D0059D03B /* FeedItem.swift in Sources */,
+				37D33A0C1B94F3DA0026DDC2 /* ProfileViewController.swift in Sources */,
 				3717C47D1B8112640080DD43 /* ExchangeAGram.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
