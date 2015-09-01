@@ -17,6 +17,7 @@
 		3717C49F1B8122030080DD43 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3717C49E1B8122030080DD43 /* FeedCell.swift */; };
 		3717C4A11B81A76D0080DD43 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */; };
 		372BF52E1B8C2B0D0059D03B /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372BF52D1B8C2B0D0059D03B /* FeedItem.swift */; };
+		37BA22191B9569950053E081 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BA22181B9569950053E081 /* FacebookSDK.framework */; };
 		37C2EBAA1B85A05D00AC680C /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C2EBA91B85A05D00AC680C /* FilterCell.swift */; };
 		37D33A0C1B94F3DA0026DDC2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D33A0B1B94F3DA0026DDC2 /* ProfileViewController.swift */; };
 		37E3DD841B843ABB0014A342 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E3DD831B843ABB0014A342 /* FilterViewController.swift */; };
@@ -47,6 +48,7 @@
 		3717C49E1B8122030080DD43 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		372BF52D1B8C2B0D0059D03B /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedItem.swift; path = ../FeedItem.swift; sourceTree = "<group>"; };
+		37BA22181B9569950053E081 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		37C2EBA91B85A05D00AC680C /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		37D33A0B1B94F3DA0026DDC2 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		37E3DD831B843ABB0014A342 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3717C4A11B81A76D0080DD43 /* MobileCoreServices.framework in Frameworks */,
+				37BA22191B9569950053E081 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +113,7 @@
 		3717C4771B8112640080DD43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				37BA22181B9569950053E081 /* FacebookSDK.framework */,
 				3717C4A01B81A76D0080DD43 /* MobileCoreServices.framework */,
 				3717C4781B8112640080DD43 /* Info.plist */,
 			);
@@ -378,6 +382,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Dan/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = ExchangeAGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +396,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Dan/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = ExchangeAGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
