@@ -96,10 +96,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="maP-NT-A4D" customClass="FBLoginView">
+                                <rect key="frame" x="50" y="400" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="fbLoginView" destination="maP-NT-A4D" id="ywl-3A-uQV"/>
                         <outlet property="nameLabel" destination="tMX-p1-Syq" id="Y0b-c4-aJJ"/>
                         <outlet property="profileImageview" destination="ooC-RK-Ph6" id="Fwr-PM-66i"/>
                     </connections>

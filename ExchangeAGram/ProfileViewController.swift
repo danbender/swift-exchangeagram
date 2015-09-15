@@ -3,6 +3,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageview: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var fbLoginView: FBLoginView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
