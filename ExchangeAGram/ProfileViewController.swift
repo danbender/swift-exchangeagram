@@ -32,7 +32,7 @@ class ProfileViewController: UIViewController, FBLoginViewDelegate {
         nameLabel.text = user.name
         let userImageURL = "https://graph.facebook.com/\(user.objectID)/picture?type=small"
         let url = NSURL(string: userImageURL)
-        let imageData = NSdata(contentsOfURL: url!)
+        let imageData = NSData(contentsOfURL: url!)
         let image = UIImage(data: imageData!)
         profileImageview.image = image
     }
