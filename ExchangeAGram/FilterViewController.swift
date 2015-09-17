@@ -143,9 +143,35 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         let alert = UIAlertController(title: "Photo Options", message: "Please choose an option", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addTextFieldWithConfigurationHandler { (textField) -> Void in
-            textField.placeholder = "Add Caption!"
+            textField.placeholder = "Add Caption..."
             textField.secureTextEntry = false
         }
+        
+        var text:String
+        let textField = alert.textFields![0] as! UITextField
+        
+        if textField.text != nil {
+            text = textField.text
+        }
+        
+        let photoAction = UIAlertAction(title: "Post photo to Facebook with Caption", style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
+            
+        }
+        
+        alert.addAction(photoAction)
+        
+        let saveFilterAction = UIAlertAction(title: "Save filter without posting on Fb", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+            
+        }
+        
+        alert.addAction(saveFilterAction)
+        
+        let cancelAction = UIAlertAction(title: "Select another filter", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            
+        }
+        
+        alert.addAction(cancelAction)
+        
         
         self.presentViewController(alert, animated: true, completion: nil)
     }
