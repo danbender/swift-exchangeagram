@@ -141,11 +141,14 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
         
         let photoAction = UIAlertAction(title: "Post photo to Facebook with Caption", style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
+            
+//            self.shareToFacebook(indexPath)
+            
             self.saveFilterToCoreData(indexPath)
             
         }
         alert.addAction(photoAction)
-        
+
         let saveFilterAction = UIAlertAction(title: "Save filter without posting on Fb", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
             self.saveFilterToCoreData(indexPath)
         }
@@ -201,12 +204,21 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         return finalImage!
     }
     
-
-    
     func shareToFacebook (indexPath: NSIndexPath) {
         let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
+        
+        let photos:NSArray = [filterImage]
+        var params = FBPhotoParams()
+        params.photos = photos as [AnyObject]
+        
+        FBDialogs.presentShareDialogWithPhotoParams(params, clientState: nil) { (call, result, error) -> Void in
+            if(result != nil) {
+                println(result)
+            } else {
+                println(error)
+            }
+        }
     }
-    
     
 //    caching functions
     func cacheImage(imageNumber: Int) {
