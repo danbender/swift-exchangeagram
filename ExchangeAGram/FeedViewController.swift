@@ -3,16 +3,24 @@ import MobileCoreServices
 import CoreData
 import MapKit
 
-class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
 //    use this feedArray to grab an array of feed items when i make the fetch request manually
     var feedArray:[AnyObject] = []
     
+    var locationManager:CLLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        set smaller value below for more accuracy when user is changing location.
+        locationManager.distanceFilter = 100.0
+        locationManager.startUpdatingLocation()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -162,6 +170,10 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
 
+//    CLLocationManagerDelegate
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("locations = \(locations)")
+    }
     
     
     
