@@ -18,6 +18,8 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        
 //        set smaller value below for more accuracy when user is changing location.
         locationManager.distanceFilter = 100.0
         locationManager.startUpdatingLocation()
