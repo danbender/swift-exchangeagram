@@ -142,7 +142,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         let photoAction = UIAlertAction(title: "Post photo to Facebook with Caption", style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
             
-//            self.shareToFacebook(indexPath)
+            self.shareToFacebook(indexPath)
             
             self.saveFilterToCoreData(indexPath)
             
@@ -182,9 +182,6 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
 
     }
     
-    
-    
-    
 //        pass in data from feedItem, pass in one of the filters
     func filteredImageFromImage (imageData: NSData, filter: CIFilter) -> UIImage {
         
@@ -207,12 +204,12 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     func shareToFacebook (indexPath: NSIndexPath) {
         let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
         
-        let photos:NSArray = [filterImage]
+        let photos:NSArray = [filterImage] as NSArray
         var params = FBPhotoParams()
         params.photos = photos as [AnyObject]
         
         FBDialogs.presentShareDialogWithPhotoParams(params, clientState: nil) { (call, result, error) -> Void in
-            if(result != nil) {
+            if (result != nil) {
                 println(result)
             } else {
                 println(error)
