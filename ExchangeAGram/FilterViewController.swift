@@ -133,24 +133,23 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
             textField.secureTextEntry = false
         }
         
-        var text:String
         let textField = alert.textFields![0] as! UITextField
-        
-        if textField.text != nil {
-            text = textField.text
-        }
         
         let photoAction = UIAlertAction(title: "Post photo to Facebook with Caption", style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
             
             self.shareToFacebook(indexPath)
             
-            self.saveFilterToCoreData(indexPath)
+            var text = textField.text
+            self.saveFilterToCoreData(indexPath, caption: text)
             
         }
+        
         alert.addAction(photoAction)
 
         let saveFilterAction = UIAlertAction(title: "Save filter without posting on Fb", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            self.saveFilterToCoreData(indexPath)
+            
+            var text = textField.text
+            self.saveFilterToCoreData(indexPath, caption:text)
         }
         alert.addAction(saveFilterAction)
         
@@ -164,7 +163,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     
-    func saveFilterToCoreData (indexPath:NSIndexPath) {
+    func saveFilterToCoreData (indexPath:NSIndexPath, caption:String) {
         let filterImage = self.filteredImageFromImage(self.thisFeedItem.image, filter: self.filters[indexPath.row])
         
         //        update image with filter
@@ -174,6 +173,9 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         //        update thumbnail with filter
         let thumbNailData = UIImageJPEGRepresentation(filterImage, 0.1)
         self.thisFeedItem.thumbNail = thumbNailData
+        
+//        caption
+        self.thisFeedItem.caption = caption
         
         //        update CoreData
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
