@@ -120,6 +120,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         feedItem.thumbNail = thumbNailData
         feedItem.latitude = locationManager.location.coordinate.latitude
         feedItem.longitude = locationManager.location.coordinate.longitude
+        
+        let UUID = NSUUID().UUIDString
+        feedItem.uniqueID = UUID
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
 //        save directly
