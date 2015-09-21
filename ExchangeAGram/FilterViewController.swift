@@ -221,6 +221,7 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
                 println(error)
             }
         }
+    }
     
 //    caching functions
     func cacheImage(imageNumber: Int) {
@@ -244,13 +245,13 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         if NSFileManager.defaultManager().fileExistsAtPath(uniquePath) {
             
             var returnedImage = UIImage(contentsOfFile: uniquePath)!
-            image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)!
+            image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Up)!
         
         } else {
             
             self.cacheImage(imageNumber)
             var returnedImage = UIImage(contentsOfFile: uniquePath)!
-            image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)!
+            image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Up)!
         
         }
         

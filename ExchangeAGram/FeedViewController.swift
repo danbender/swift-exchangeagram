@@ -160,7 +160,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         if thisItem.filtered == true {
             
             let returnedImage = UIImage(data: thisItem.image)!
-            let image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)
+            let image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Up)
             
         } else {
             
