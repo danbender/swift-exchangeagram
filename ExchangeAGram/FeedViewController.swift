@@ -15,6 +15,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backgroundImage = UIImage(named: "AutumnBackground")
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage!)
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
