@@ -116,7 +116,7 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
 //        set up actual feed item and save it
         feedItem.image = imageData
-        feedItem.caption = "text caption"
+        feedItem.caption = ""
         feedItem.thumbNail = thumbNailData
         feedItem.latitude = locationManager.location.coordinate.latitude
         feedItem.longitude = locationManager.location.coordinate.longitude
