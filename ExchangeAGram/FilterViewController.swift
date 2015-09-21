@@ -177,6 +177,8 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
 //        caption
         self.thisFeedItem.caption = caption
         
+        self.thisFeedItem.filtered = true
+        
         //        update CoreData
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
@@ -239,10 +241,16 @@ class FilterViewController: UIViewController, UICollectionViewDataSource, UIColl
         var image:UIImage
         
         if NSFileManager.defaultManager().fileExistsAtPath(uniquePath) {
-            image = UIImage(contentsOfFile: uniquePath)!
+            
+            var returnedImage = UIImage(contentsOfFile: uniquePath)!
+            image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)!
+        
         } else {
+            
             self.cacheImage(imageNumber)
-            image = UIImage(contentsOfFile: uniquePath)!
+            var returnedImage = UIImage(contentsOfFile: uniquePath)!
+            image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)!
+        
         }
         
         return image

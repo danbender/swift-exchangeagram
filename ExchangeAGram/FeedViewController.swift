@@ -123,6 +123,9 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let UUID = NSUUID().UUIDString
         feedItem.uniqueID = UUID
+        
+        feedItem.filtered = false
+        
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
 //        save directly
@@ -154,8 +157,18 @@ class FeedViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let thisItem = feedArray[indexPath.row] as! FeedItem
         
+        if thisItem.filtered == true {
+            
+            let returnedImage = UIImage(data: thisItem.image)!
+            let image = UIImage(CGImage: returnedImage.CGImage, scale: 1.0, orientation: UIImageOrientation.Right)
+            
+        } else {
+            
 //        update cell to display image and caption.
-        cell.imageView.image = UIImage(data: thisItem.image)
+            cell.imageView.image = UIImage(data: thisItem.image)
+        
+        }
+        
         cell.captionLabel.text = thisItem.caption
         
         return cell
